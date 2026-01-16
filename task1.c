@@ -6,7 +6,7 @@
 
 int main() {
     int fd[2];
-    const char *message = "Привет из родительского процесса!";
+    const char *message = "Hello world";
     char buffer[1024];
 
     if (pipe(fd) == -1) {
@@ -24,7 +24,7 @@ int main() {
     if (pid > 0) {
         close(fd[0]);
 
-        printf("Родитель: Отправляю строку в канал...\n");
+        printf("Родитель:Отправка строки в канал\n");
         if (write(fd[1], message, strlen(message) + 1) == -1) {
             perror("Родитель: ошибка записи");
         }
