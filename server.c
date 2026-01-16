@@ -20,7 +20,7 @@ int main() {
         return EXIT_FAILURE;
     }
 
-    printf("Сервер запущен. Жду клиента...\n");
+    printf("Сервер запущен\n");
 
     fd = open(FIFO_NAME, O_RDONLY);
     if (fd == -1) {
@@ -40,7 +40,7 @@ int main() {
             printf("Получена строка длиной %d. Всего таких: %d\n", len, length_counts[len]);
 
             if (length_counts[len] >= TARGET_COUNT) {
-                printf("Цель достигнута! 5 строк длины %d получено. Завершаюсь...\n", len);
+                printf("Успех\n", len);
                 break;
             }
         }
